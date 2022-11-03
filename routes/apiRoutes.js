@@ -6,7 +6,7 @@ const {
     readAndAppend,
     writeToFile,
 } = require('../helpers/fsUtils');
-const { v4: uuidv4 } = require("uuid");
+const uuidv1 = require('uuid/v1')
 
 
 router.get("/", (req, res) => {
@@ -20,11 +20,12 @@ router.post("/", (req,res) => {
       const note = {
         title,
         text,
-        id: uuidv4(),
+        id: uuidv1(),
       };
   
       readAndAppend(note, './db/db.json');
       res.json(note);
     }
 });
+
 module.exports = router;
