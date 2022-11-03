@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 const fs = require("fs");
 const path = require('path');
@@ -6,7 +7,7 @@ const {
     readAndAppend,
     writeToFile,
 } = require('../helpers/fsUtils');
-const uuidv1 = require('uuid/v1');
+const { v1: uuidv1 } = require('uuid');
 
 
 router.get("/", (req, res) => {
