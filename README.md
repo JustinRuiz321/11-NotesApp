@@ -26,6 +26,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### Links
 https://module11-notes-app.herokuapp.com/
+https://github.com/JustinRuiz321/11-NotesApp
 
 ### Screenshots
 <img width="1559" alt="Screen Shot 2022-11-03 at 3 48 30 PM" src="https://user-images.githubusercontent.com/107062112/199819916-d6452cfd-58fb-4de4-8a74-162fd61cfb24.png">
