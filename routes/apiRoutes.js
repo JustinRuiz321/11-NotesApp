@@ -1,4 +1,4 @@
-
+//Constants for the routers
 const router = require('express').Router();
 const fs = require("fs");
 const path = require('path');
@@ -9,11 +9,13 @@ const {
 } = require('../helpers/fsUtils');
 const { v1: uuidv1 } = require('uuid');
 
-
+//To be able to read the notes from the db.json
 router.get("/", (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+
+//To create a new note
 router.post("/", (req,res) => {
     console.log(req.body);
     const { title, text } = req.body;
@@ -29,6 +31,8 @@ router.post("/", (req,res) => {
     }
 });
 
+
+//in order to delete a note that was created
 router.delete('/:id', (req, res) => {
     const noteID = req.params.id;
     readFromFile('./db/db.json')
