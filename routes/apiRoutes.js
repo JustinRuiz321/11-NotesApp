@@ -6,7 +6,7 @@ const {
     readAndAppend,
     writeToFile,
 } = require('../helpers/fsUtils');
-const uuidv1 = require('uuid/v1')
+const uuidv1 = require('uuid/v1');
 
 
 router.get("/", (req, res) => {
@@ -27,5 +27,17 @@ router.post("/", (req,res) => {
       res.json(note);
     }
 });
+
+router.delete('/:id', (req, res) => {
+    const noteID = req.params.id;
+    readFromFile('./db/db.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        const noteFound = json.filter((note) => note.id !== noteID);
+  
+        writeToFile('./db/db.json', noteFound);
+        res.json("Note deleted");
+      });
+  });
 
 module.exports = router;
